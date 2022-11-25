@@ -7,7 +7,16 @@ Reference Semantics allow value types to be used like reference types.
   - Use in parameters for large structs.
   - Avoid defensive copies.
   - The in modifier can also be used with reference types or numeric values. However, the benefits in those cases are minimal, if any.
-* `ref` locals and returns
+* `ref` returns
+  - Returns a reference to value type, not a copy of the value
+  - Lifetime of the returned value must exceed the lifetime of the called method, e.g. a reference to a field or method argument, NOT a variable in the called method (also not allowed on `async` methods)
+  - Modifying this reference is the same as modifying the original value
+  - Add `ref` modifier to the method declaration return type, and to `return` statement
+* `ref` local  
+  - Assigning a `ref` return to a new variable will create a copy (The variable is a value type, not a reference!)
+  - A `ref` local is a variable that is a reference to a value tupe. Accessing the variable accesses the original value
+  - Use a `ref` local to store the `ref` return result
+  - Type inference with `var` will get the value type, not the `ref` modifier - requires `ref var` to work as expected
 * `ref readonly` returns
   - The return value is a struct larger than [IntPtr.Size](https://learn.microsoft.com/en-us/dotnet/api/system.intptr.size?view=net-6.0).
   - The storage lifetime is greater than the method returning the value.
@@ -27,7 +36,7 @@ Reference Semantics allow value types to be used like reference types.
 | The caller and the called method see the same object on the heap |  |
 |  | Assigning a value type to a new variable also _copies_ the value |
 |  | Original value is unmodified |
-|  | Copies aren't actually that expensive |
+|  | (Copies aren't actually that expensive) |
 
 ---
 ## Using value types minimizes the number of allocation operations:
