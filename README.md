@@ -1,4 +1,6 @@
 # C# Reference Semantics with Value Types
+Reference Semantics allow value types to be used like reference types.
+
 * `in` parameters
   - This method doesn't modify the value of the argument used as this parameter.
   - Unlike a ref or out parameter, you don't need to apply the in modifier at the call site.
