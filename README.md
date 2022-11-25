@@ -17,7 +17,13 @@ Reference Semantics allow value types to be used like reference types.
   - All properties must be read-only, including auto-implemented properties.  
 * `ref struct`
   - Use a ref struct or a readonly ref struct, such as Span<T> or ReadOnlySpan<T>, to work with blocks of memory as a sequence of bytes.
-  
+--- 
+## Pass By Reference VS Value
+
+| Pass By Reference | Pass By Value |
+|---|---|
+| A variable of a reference type is a refernce to the actual object on the heap | A variable for a value type is the value inself
+
 ---
 ## Using value types minimizes the number of allocation operations:
 *  Storage for value types is stack-allocated for local variables and method arguments.
