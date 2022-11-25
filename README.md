@@ -21,8 +21,13 @@ Reference Semantics allow value types to be used like reference types.
 ## Pass By Reference VS Value
 
 | Pass By Reference | Pass By Value |
-|---|---|
-| A variable of a reference type is a refernce to the actual object on the heap | A variable for a value type is the value inself
+|:---|:---|
+| A variable of a reference type is a refernce to the actual object on the heap | A variable for a value type is the value inself |
+| Passing a reference type to a method is just passing this reference | Passing a value type to a method _copies_ the value |
+| The caller and the called method see the same object on the heap |  |
+|  | Assigning a value type to a new variable also _copies_ the value |
+|  | Original value is unmodified |
+|  | Copies aren't actually that expensive |
 
 ---
 ## Using value types minimizes the number of allocation operations:
