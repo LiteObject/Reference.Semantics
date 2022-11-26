@@ -2,11 +2,10 @@
 Reference Semantics allow value types to be used like reference types.
 
 * `in` parameters
-  - This method doesn't modify the value of the argument used as this parameter.
-  - Unlike a ref or out parameter, you don't need to apply the in modifier at the call site.
-  - Use in parameters for large structs.
-  - Avoid defensive copies.
-  - The in modifier can also be used with reference types or numeric values. However, the benefits in those cases are minimal, if any.
+  - The method doesn't modify the value of the argument used as this parameter.
+  - Unlike a `ref` or `out` parameter, you don't need to apply the `in` modifier at the call site.
+  - Use `in` parameters for large structs.  
+  - The `in` modifier can also be used with reference types or numeric values. However, the benefits in those cases are minimal, if any.
 * `ref` returns
   - Returns a reference to value type, not a copy of the value
   - Lifetime of the returned value must exceed the lifetime of the called method, e.g. a reference to a field or method argument, NOT a variable in the called method (also not allowed on `async` methods)
@@ -25,7 +24,7 @@ Reference Semantics allow value types to be used like reference types.
   - All field members must be read-only.
   - All properties must be read-only, including auto-implemented properties.  
 * `ref struct`
-  - Use a ref struct or a readonly ref struct, such as Span<T> or ReadOnlySpan<T>, to work with blocks of memory as a sequence of bytes.
+  - Use a `ref` struct or a `readonly ref` struct, such as `Span<T>` or `ReadOnlySpan<T>`, to work with blocks of memory as a sequence of bytes.
 --- 
 ## Pass By Reference VS Value
 
