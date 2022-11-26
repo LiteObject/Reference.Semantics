@@ -28,7 +28,7 @@ namespace Reference.Semantics
 
             // ACT
 
-            /* Since we don't have "ref" keywords, the ref return will be COPIED to variable P */
+            /* Since we don't have "ref" modifier keywords, the ref return will be COPIED to variable P */
             MyPoint p = myloc.GetLocationByRef();
             p.X = 2;
 

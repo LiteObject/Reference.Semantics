@@ -18,8 +18,8 @@ Reference Semantics allow value types to be used like reference types.
   - Use a `ref` local to store the `ref` return result
   - Type inference with `var` will get the value type, not the `ref` modifier - requires `ref var` to work as expected
 * `ref readonly` returns
-  - The return value is a struct larger than [IntPtr.Size](https://learn.microsoft.com/en-us/dotnet/api/system.intptr.size?view=net-6.0).
-  - The storage lifetime is greater than the method returning the value.
+  - Extends `ref` locals and returns
+  - Return a value type by reference, but caller is not allowed to modify  
 * `readonly` struct
   - Indicates that a type is immutable.
   - All field members must be read-only.
